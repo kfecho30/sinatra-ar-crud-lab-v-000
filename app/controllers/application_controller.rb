@@ -45,4 +45,8 @@ class ApplicationController < Sinatra::Base
     @post.save
     erb :show
   end
+
+  delete 'post/:id/delete' do
+    erb :delete
+  end
 end
