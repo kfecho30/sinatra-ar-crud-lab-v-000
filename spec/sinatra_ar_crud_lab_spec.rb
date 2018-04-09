@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Blog Post App" do
   let(:post_name) { "Hello World" }
@@ -124,6 +125,7 @@ describe "Blog Post App" do
     it "deletes a blog post from the database" do
       visit "/posts/#{@post2.id}"
       click_button "delete"
+      binding.pry
       expect(Post.all.count).to eq(1)
       expect(Post.last.name).to eq("Hello World")
     end
